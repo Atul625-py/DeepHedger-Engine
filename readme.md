@@ -24,6 +24,19 @@ Traditional options delta-hedging operates on the theoretical assumption of fric
 
 ---
 
+## 🗃️ Data Architecture & Provenance
+
+The tracking framework is trained and evaluated using high-fidelity institutional order flow data:
+
+* **Dataset Source:** Indian Nifty 50 Index Options Intraday Tick Dataset (2023 Historical Block).
+* **Data Granularity:** 1-Minute Chronological Intraday Bars (Open, High, Low, Close, Volume, Open Interest).
+* **Experimental Regime Allocation:**
+  * **In-Sample Training Windows:** January 2023 – February 2023 sequential market paths.
+  * **Out-of-Sample Test Window:** March 2023 continuous trading matrix (completely unseen evaluation path).
+* **Extracted Features:** Strike Price ($K$), Option Premium Token Close Price ($V_t$), Call/Put Flag (`CE`/`PE`), Underwritten Multi-variate Spot Price Matrix ($S_t$), Moneyness Ratio ($S_t / K$), and Exact Real-Time Micro-Fractional Expiry Decays ($T$).
+
+---
+
 ## 🔬 Mathematical Framework & Strategy
 
 ### 1. The Classical Benchmarking Deficit
@@ -66,14 +79,17 @@ DeepHedger-Engine/
 
     ```
 
-### 🏃 Run the Engine Locally
+---
+
+## 🏃 Run the Engine Locally
 
 1. **Clone the Repository:**
-   ```bash
-   git clone [https://github.com/your-username/DeepHedger-Engine.git](https://github.com/your-username/DeepHedger-Engine.git)
-   cd DeepHedger-Engine
+```bash
+git clone [https://github.com/your-username/DeepHedger-Engine.git](https://github.com/your-username/DeepHedger-Engine.git)
+cd DeepHedger-Engine
 
 ```
+
 
 2. **Establish Environment Dependencies:**
 ```bash
